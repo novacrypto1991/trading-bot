@@ -1,0 +1,45 @@
+name: Trading Bot
+
+on:
+  schedule:
+    - cron: "1,16,31,46 * * * *"   # كل ربع ساعة (بعد ما تسكّر شمعة الـ 15 دقيقة)
+  workflow_dispatch:                # تشغيل يدوي من تبويب Actions
+    inputs:
+      mode:
+        description: "شو بدك تشغّل؟"
+        type: choice
+        options: [once, summary, test, backtest]
+        default: once
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trading-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python trading_bot.py --${{ github.event.inputs.mode || 'once' }}
+
+      - name: Save state
+        run: |
+          git config user.name "trading-bot"
+          git config user.email "trading-bot@users.noreply.github.com"
+          git pull --rebase -q || true
+          git add bot_state.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "update bot state" && git push)
