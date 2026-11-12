@@ -15,15 +15,15 @@
    "time": 1794427200000,
    "symbol": "XAUUSD",
    "style": "swing",
-   "last_checked": 1794427200000
+   "last_checked": 1794441600000
   }
  ],
  "last_summary": "2026-11-08-13",
  "sweep_seen": {
   "PAXGUSDT": 1793969100000,
-  "BTCUSDT": 1794441600000,
-  "ETHUSDT": 1794441600000,
+  "BTCUSDT": 1794467700000,
+  "ETHUSDT": 1794467700000,
   "SOLUSDT": 1793969100000,
-  "XAUUSD": 1794441600000
+  "XAUUSD": 1794467700000
  }
 }
