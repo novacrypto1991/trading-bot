@@ -2,28 +2,13 @@
  "last_signal": {
   "XAUUSD|swing": 1794427200000
  },
- "open": [
-  {
-   "side": "SELL",
-   "entry": 3974.9,
-   "sl": 4026.06260292453,
-   "tp1": 3923.73739707547,
-   "tp2": 3872.5747941509403,
-   "score": 5,
-   "rsi": 32.38501875922026,
-   "level": 3908.74,
-   "time": 1794427200000,
-   "symbol": "XAUUSD",
-   "style": "swing",
-   "last_checked": 1794441600000
-  }
- ],
+ "open": [],
  "last_summary": "2026-11-08-13",
  "sweep_seen": {
   "PAXGUSDT": 1793969100000,
-  "BTCUSDT": 1794467700000,
-  "ETHUSDT": 1794467700000,
+  "BTCUSDT": 1794499200000,
+  "ETHUSDT": 1794499200000,
   "SOLUSDT": 1793969100000,
-  "XAUUSD": 1794467700000
+  "XAUUSD": 1794499200000
  }
 }
